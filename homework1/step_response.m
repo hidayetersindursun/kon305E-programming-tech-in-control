@@ -10,6 +10,7 @@ function  [y,t]=step_response(Gs,method)
         % default implementation goes here
         if method == "default"
             step(Gs);
+            stepinfo(Gs);
         %% midpoint
         % midpoint implementation goes here
         elseif method == "midpoint"
@@ -30,3 +31,7 @@ end
 
 %% Which method performs the best and why?
 % response goes here
+
+
+
+
