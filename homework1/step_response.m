@@ -8,16 +8,16 @@ function  [y,t]=step_response(Gs,method)
         u = 1;
         h = 0.1;
         n = 2; % order of equation
-        
+        tfinal = 3;
         %% default
         % default implementation goes here
-        y_default = step(Gs,3);
-        stepinfo(Gs);
-        
+        y_default = step(Gs,tfinal);
+        stepinfo(Gs)
+        t_default = linspace(0,3,length(y_default));
         %% midpoint
         % midpoint implementation goes here          
         
-        t_midpoint = 0:0.1:3;
+        t_midpoint = 0:h:tfinal;
         x_midpoint = zeros(n,length(t_midpoint));
         y_midpoint = zeros(n-1,length(t_midpoint));
         x_midpoint(:,1) = 0;
@@ -31,7 +31,7 @@ function  [y,t]=step_response(Gs,method)
         
         %% heun
         % heun implementation goes here
-        t_heun = 0:0.1:3;
+        t_heun = 0:h:tfinal;
         x_heun = zeros(n,length(t_heun));
         y_heun = zeros(n-1,length(t_heun));
         x_heun(:,1) = 0;
@@ -45,7 +45,7 @@ function  [y,t]=step_response(Gs,method)
         
         %% rkutta4
         % rkutta4 implementation goes here
-        t_rkutta4 = 0:0.1:3;
+        t_rkutta4 = 0:h:tfinal;
         x_rkutta4 = zeros(n,length(t_rkutta4));
         y_rkutta4 = zeros(n-1,length(t_rkutta4));
         x_rkutta4(:,1) = 0;
@@ -61,9 +61,6 @@ function  [y,t]=step_response(Gs,method)
         
         %% plotting goes here
         
-        t_midpoint = 0:0.1:3;
-        t_default = linspace(0,3,length(y_default));
-         
         plot(t_midpoint,y_midpoint,"r","LineWidth",1);
         
         title("combine plots")
