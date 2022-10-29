@@ -55,13 +55,17 @@ function  [y,t]=step_response(Gs,method)
         t_midpoint = 0:0.1:3;
         t_default = linspace(0,3,length(y_default));
          
-        plot(t_midpoint,y_midpoint);
+        plot(t_midpoint,y_midpoint,"r","LineWidth",1);
+        
         title("combine plots")
         hold on
-        plot(t_default,y_default);
-        hold on
-        plot(t_heun,y_heun);
         
+        plot(t_default,y_default,"k","LineWidth",1);
+        hold on
+        
+        plot(t_heun,y_heun,"b","LineWidth",1);
+        
+        legend(' method=’default’, color=’k’ ',' method=’midpoint’, color=’r’ ',' method=’heun’, color=’b’ ');
         if method == "default"
             y = y_default;
             t = t_default;
