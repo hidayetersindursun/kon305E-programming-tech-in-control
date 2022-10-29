@@ -7,13 +7,15 @@ function  [y,t]=step_response(Gs,method)
         [A,B,C,D] = tf2ss(num,den);
         u = 1;
         h = 0.1;
-        n = 2; % order of equation
+        n = size(A,1); % order of equation
         tfinal = 3;
+        
         %% default
         % default implementation goes here
         y_default = step(Gs,tfinal);
-        stepinfo(Gs)
+        stepinfo(Gs);
         t_default = linspace(0,3,length(y_default));
+        
         %% midpoint
         % midpoint implementation goes here          
         
