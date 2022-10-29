@@ -64,7 +64,8 @@ function  [y,t]=step_response(Gs,method)
         %% plotting goes here
         
         plot(t_midpoint,y_midpoint,"r","LineWidth",1);
-        
+        grid on
+        yline(0.01,'--');
         title("combine plots")
         hold on
         
@@ -77,7 +78,7 @@ function  [y,t]=step_response(Gs,method)
         plot(t_rkutta4,y_rkutta4,"m","LineWidth",1);
         
         legend(' method=’default’, color=’k’ ',' method=’midpoint’, color=’r’ ',' method=’heun’, color=’b’ ', ' method=’rkutta4’, color=’m’ ');
-        
+        hold off
 
         %% return of the result for given method method
         if method == "default"
@@ -97,7 +98,18 @@ end
 
 %% Which method performs the best and why?
 % response goes here
+%{
 
+midpoint & heun methods give exactly the same result even in different h
+values. 
 
+rkutta4 method gives nice results in h <= 0.1 but in higher h values, it is
+getting more unstable.
+
+While h <= 0.1 rkutta4 is better than heun & midpoint but heun &
+midpoint methods are more adaptive in higher h values compared to rkutta4.
+So, heun & midpoint methods are better.
+
+%}
 
 
