@@ -62,14 +62,13 @@ function  [y,t]=step_response(Gs,method)
         end
         
         %% plotting goes here
-        
-        plot(t_midpoint,y_midpoint,"r","LineWidth",1);
+        plot(t_default,y_default,"k","LineWidth",1);
         grid on
-        yline(0.01,'--');
+        
         title("combine plots")
         hold on
         
-        plot(t_default,y_default,"k","LineWidth",1);
+        plot(t_midpoint,y_midpoint,"r","LineWidth",1);
         hold on
         
         plot(t_heun,y_heun,"b","LineWidth",1);
