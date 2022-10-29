@@ -9,7 +9,7 @@ function  [y,t]=step_response(Gs,method)
         % default
         % default implementation goes here
         %if method == "default"
-            y_default = step(Gs,3);
+            y_default = step(Gs);
             stepinfo(Gs);
         
         %% midpoint
@@ -41,13 +41,13 @@ function  [y,t]=step_response(Gs,method)
         %else
             
         %end
-        x = 0:0.1:3;
-        x1 = linspace(0,3,length(y_default))
-  
-        plot(x,y_midpoint);
+        
+        y_default = transpose(y_default);
+        size(y_defa)
+        plot(t_midpoint,y_midpoint);
         title("combine plots")
         hold on
-        plot(x1,y_default);
+        plot(t_midpoint,y_default);
         % return of the result for given method method
 end
 
